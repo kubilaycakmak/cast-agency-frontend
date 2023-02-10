@@ -1,3 +1,5 @@
+let backendUrl = "https://cast-agency-backend.onrender.com";
+
 let form = document.getElementById("login-form");
 
 form.addEventListener("submit", (e) => {
@@ -12,7 +14,7 @@ form.addEventListener("submit", (e) => {
     }
 
     console.log(data);
-    axios.post("http://localhost:3001/api/auth/login", data)
+    axios.post(backendUrl+"/api/auth/login", data)
     .then(data => {
         const { token } = data.data;
         // we need to save the token to localstorage

@@ -1,3 +1,5 @@
+let backendUrl = "https://cast-agency-backend.onrender.com";
+
 let name = document.getElementById('name');
 let agencyLink = document.getElementById("cast-link");
 let agencyName = document.getElementById("cast-name");
@@ -31,7 +33,7 @@ if(token){
 getMe();
 
 function getMe(){
-    axios.get("http://localhost:3001/me").then(
+    axios.get(backendUrl + "/me").then(
         data => {
             const { fullName, role, agencies } = data.data.user;
 
@@ -71,7 +73,7 @@ function userUpdate(fullName, role){
         data.role = role;
     }
 
-    axios.put("http://localhost:3001/update", data)
+    axios.put(backendUrl + "/update", data)
         .then(res => {
             console.log(res);
         }).catch(err => {
@@ -108,7 +110,7 @@ function createAgency(){
         since: agencyInputSince.value
     };
 
-    axios.post("http://localhost:3001/api/agency/", data)
+    axios.post(backendUrl + "/api/agency/", data)
         .then(res => {
             console.log(res);
         }).catch(err => {
@@ -132,7 +134,7 @@ logoutButton.addEventListener("click", () => {
     // we will call logout endpoint
     // then we will delete token from localstorage
     // then we will redirect to login page
-    axios.post("http://localhost:3001/api/auth/logout").then(
+    axios.post(backendUrl + "/api/auth/logout").then(
         data => {
             localStorage.removeItem("token");
             window.location.href = "./login.html";
