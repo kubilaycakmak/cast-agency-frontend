@@ -9,6 +9,8 @@ let token = localStorage.getItem("token");
 
 if(token){
     axios.defaults.headers.common["Authorization"] = `${token}`;
+}else{
+    window.location.href = "./login.html";
 }
 
 getMe();
