@@ -1,4 +1,7 @@
 let backendUrl = "https://cast-agency-backend.onrender.com";
+axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
+axios.defaults.headers.common["Access-Control-Allow-Headers"] = "*";
+axios.defaults.headers.common["Access-Control-Allow-Methods"] = "*";
 
 let name = document.getElementById('name');
 let agencyLink = document.getElementById("cast-link");
